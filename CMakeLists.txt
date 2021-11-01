@@ -13,7 +13,7 @@ set( NRF_TARGET "nrf52" )
 set( NRF52SOFTDEVICE "S112" )
 set( SDK_DEPENDENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/sdk_dependent")
 set( NORDIC_TARGET nordic-conan)
-
+set( CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 add_subdirectory(cmake/nordic_sdk ${CMAKE_BINARY_DIR}/nrfsdk )
 
 
@@ -64,7 +64,7 @@ target_compile_features(
 target_compile_options(
     nordic-conan
     PRIVATE
-    -O0
+    -Os
     -fcoroutines
     -fnothrow-opt
     -fno-threadsafe-statics
