@@ -39,6 +39,8 @@ if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
                         REMOTE conancenter
                         SETTINGS ${settings}
                         PROFILE ${PROJECT_SOURCE_DIR}/cmake/arm-none-eabi-toolchain-conan
+                        OPTIONS fmt:header_only=True
+                                fmt:with_os_api=False
                         )
     find_package(fmt REQUIRED)
 endif()
